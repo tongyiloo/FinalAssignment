@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="30dp"
     android:orientation="vertical"
-    android:background="@color/grey"
+    android:background="@color/lightpurple"
     tools:context=".LoginActivity">
 
     <TextView
@@ -34,10 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:hint="Username">
+        app:boxBackgroundColor="@color/white"
+        android:hint="Email Adddress">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameLogin"
+            android:id="@+id/emailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -51,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        app:boxBackgroundColor="@color/white"
         android:layout_marginTop="10dp"
         app:passwordToggleEnabled="true">
 

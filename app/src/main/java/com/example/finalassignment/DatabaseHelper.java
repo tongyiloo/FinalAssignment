@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public  static final String DBNAME = "Login.db";
+    public  static final String DBNAME = "DigitalLibrary.db";
     public DatabaseHelper(@Nullable Context context) {
         super(context, DBNAME, null, 1);
     }
@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //To create table on DB
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE USERS(username TEXT primary key, password TEXT)");
+        db.execSQL("CREATE TABLE USERS(ID INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, emailAddress TEXT, password TEXT)");
     }
 
     //Drop the table if already exists
@@ -27,10 +27,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //To insert data
-    public Boolean insertData(String username, String password){
+    public Boolean insertData(String username, String emailAddress, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
+        contentValues.put("emailAddress", emailAddress);
         contentValues.put("password", password);
         long result = db.insert("users", null, contentValues);
         if (result==1) return false;
@@ -49,9 +50,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //To check the password
-    public Boolean checkusernamepassword(String username, String password){
+    public Boolean checkusernamepassword(String email, String password){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = ? and password = ?", new String[]{username, password});
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE emailAddress = ? and password = ?", new String[]{email, password});
         if (cursor.getCount()>0)
             return true;
         else

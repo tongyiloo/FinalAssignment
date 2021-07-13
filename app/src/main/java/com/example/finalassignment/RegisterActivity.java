@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private TextInputEditText username, password, repassword;
+    private TextInputEditText username, emailAddress, password, repassword;
     private Button btnsignup;
     private TextView login;
     private DatabaseHelper DB;
@@ -25,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         username = findViewById(R.id.usernameRegister);
+        emailAddress = findViewById(R.id.emailRegister);
         password = findViewById(R.id.passwordRegister);
         repassword = findViewById(R.id.passwordRegisterConfirm);
         btnsignup = findViewById(R.id.btnRegister);
@@ -36,16 +37,17 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user = username.getEditableText().toString();
+                String email = emailAddress.getEditableText().toString();
                 String pass = password.getEditableText().toString();
                 String repass = repassword.getEditableText().toString();
 
-                if(user.equals("")||pass.equals("")||repass.equals(""))
+                if(user.equals("")||pass.equals("")||repass.equals("")||email.equals(""))
                     Toast.makeText(RegisterActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else {
                     if (pass.equals(repass)){
                         Boolean checkuser = DB.checkusername(user);
                         if (!checkuser){
-                            Boolean insert = DB.insertData(user, pass);
+                            Boolean insert = DB.insertData(user, email, pass);
                             if(insert){
                                 Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

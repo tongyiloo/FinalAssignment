@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="30dp"
     android:orientation="vertical"
-    android:background="@color/grey"
+    android:background="@color/lightpurple"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -34,6 +34,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            app:boxBackgroundColor="@color/white"
+            android:hint="Email Address">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:boxBackgroundColor="@color/white"
             android:hint="Username">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -52,6 +69,7 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:layout_marginTop="10dp"
+            app:boxBackgroundColor="@color/white"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -69,6 +87,7 @@
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
             android:layout_marginTop="10dp"
+            app:boxBackgroundColor="@color/white"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -79,12 +98,11 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/radius"
             android:elevation="50dp"
             android:shadowColor="@color/black"
