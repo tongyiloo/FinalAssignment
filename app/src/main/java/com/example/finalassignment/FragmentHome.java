@@ -1,10 +1,12 @@
 package com.example.finalassignment;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import java.nio.file.Path;
 
 
-public class FragmentHome extends Fragment {
+public class FragmentHome extends Fragment{
 
     public  FragmentHome(){}
 
@@ -43,7 +45,29 @@ public class FragmentHome extends Fragment {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
+        CardView cvBooks = view.findViewById(R.id.cardViewBooks);
+        CardView cvLibrary = view.findViewById(R.id.cardViewLibrary);
+
+        cvBooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), BooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cvLibrary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), MyLibraryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         return view;
     }
+
+
 }

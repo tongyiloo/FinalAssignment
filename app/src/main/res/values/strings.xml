@@ -2,4 +2,63 @@
     <string name="app_name">FinalAssignment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="bookslibrary">
+        <item>Relive the emotional and thrilling adventures from the film Avengers: Infinity War,
+        complete with original illustrations that bring this tale to life right on the cusp of the release of Avengers:
+        Endgame, the film that will see the culmination of every significant event in the Marvel Cinematic Universe.</item>
+
+        <item>Read-Along with Marvel!
+
+After being chosen to take part in Operation: Rebirth, Steve Rogers was transformed from frail and sickly into a powerful Super-Soldier.
+
+Now, with his trusty shield at his side, Steve Rodgers fights for liberty and justice for all as Captain America, the First Avenger!
+
+This updated version of the Origin Storybook features word for word narration and is timed to coincide with the release of the CAPTAIN AMERICA:
+            THE WINTER SOLDIER film tie-in program.</item>
+
+        <item>Tony Stark is known throughout the world as many things: billionaire, inventor, Avenger. But mainly for being the Invincible Iron Man.
+
+Just when Tony is about to add his pizzazz to an international eco-summit in Ireland, someone close to him forces him to question his role in making the world a more dangerous place with his high-tech weaponry. But Stark doesn’t have much time to reflect before an old enemy presents him with an even greater challenge: the assassination of all the eco-ministers, and Iron Man himself. Just how invincible
+            Iron Man is when he is stripped of everything remains to be seen in this breathless adventure by the bestselling author of Artemis Fowl.</item>
+
+        <item>An instant New York Times best seller! This is the first of three young adult novels from New York Times best-selling author
+            Mackenzi Lee that explores the untapped potential and duality of heroism of popular characters in the Marvel Universe. Before the days of
+            going toe-to-toe with the Avengers, a younger Loki is desperate to prove himself heroic and capable, while it seems everyone around him suspects
+            him of inevitable villainy and depravity . . . except for Amora. Asgard’s resident sorceress-in-training feels like a kindred spirit—someone who
+            values magic and knowledge, who might even see the best in him. But when Loki and Amora cause the destruction of one of Asgard’s most prized
+            possessions, Amora is banished to Earth, where her powers will slowly and excruciatingly fade to nothing. Without the only person who has ever
+            looked at his magic as a gift instead of a threat, Loki slips further into anguish and the shadow of his universally adored brother, Thor.
+            When Asgardian magic is detected in relation to a string of mysterious murders on Earth, Odin sends Loki to investigate.
+            As he descends upon nineteenth-century London, Loki embarks on a journey
+            that leads him to more than just a murder suspect, putting him on a path to discover the source of his power—and who he’s meant to be.</item>
+        <item>Miles Morales is just your average teenager. Dinner every Sunday with his parents, chilling out playing old-school video games with his best friend, Ganke, crushing on brainy, beautiful poet Alicia. He’s even got a scholarship spot at the prestigious Brooklyn Visions Academy. Oh yeah, and he’s Spider Man.
+
+But lately, Miles’s spidey-sense has been on the fritz. When a misunderstanding leads to his suspension from school, Miles begins to question his abilities. After all, his dad and uncle were Brooklyn jack-boys with criminal records. Maybe kids like Miles aren’t meant to be superheroes. Maybe Miles should take his dad’s advice and focus on saving himself.
+
+As Miles tries to get his school life back on track, he can’t shake the vivid nightmares that continue to haunt him. Nor can he avoid the relentless buzz of his spidey-sense every day in history class, amidst his teacher’s lectures on the historical “benefits” of slavery and the importance of the modern-day prison system. But after his scholarship is threatened, Miles uncovers a chilling plot, one that puts his friends, his neighborhood, and himself at risk.
+
+It’s time for Miles to suit up.</item>
+        <item>Read along with Marvel!
+
+Imagine being a prince that some would hail as a god.  Imagine that you’re the heir to your father’s throne.  Finally, imagine that you have unlimited power to control the elements at your fingertips.
+
+Thor Odinson doesn’t need to imagine any of this.  Thor will one day rule Asgard, but first he must prove himself worthy. He fights great battles, defends his kingdom and is a loyal friend.  But Thor is arrogant, and this could cost him the right to wield the mighty hammer, Mjolnir, and to ascend to the throne.  Can Thor learn humility before he loses his royal right to his jealous brother, Loki?
+
+This new edition of the classic tale of Thor has been completely re-illustrated, and features word for word narration that is sure to attract young Super Hero fans, or anyone in search of a great story.</item>
+    </string-array>
+
+    <string name="string_avg">Relive the emotional and thrilling adventures from the film Avengers: Infinity War,
+        complete with original illustrations that bring this tale to life right on the cusp of the release of Avengers:
+        Endgame, the film that will see the culmination of every significant event in the Marvel Cinematic Universe.</string>
+    <string name="test1">asddddddddddddddddasdad</string>
+    <string name="test2">bsddddddddddddddddasdad</string>
+    <string name="test3">csddddddddddddddddasdad</string>
+    <string name="test4">ddsddddddddddddddddasdad</string>
+    <string name="test5">esddddddddddddddddasdad</string>
+
+
+
+
+
 </resources>

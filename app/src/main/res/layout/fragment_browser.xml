@@ -3,13 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentBrowser">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Browser" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightpurple"
+        android:orientation="vertical"
+        android:weightSum="10"
+        app:layout_constraintBaseline_toBaselineOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="14dp"
+            android:text="Digital Library"
+            android:textColor="@color/purple_500"
+            android:textSize="30dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <Button
+            android:id="@+id/btnGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/white_radius"
+            android:elevation="10dp"
+            android:text="Google" />
+
+        <Button
+            android:id="@+id/btnGoogleScholar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/white_radius"
+            android:elevation="10dp"
+            android:text="Google Scholar" />
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>

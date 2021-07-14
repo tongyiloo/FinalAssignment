@@ -14,32 +14,29 @@
         android:weightSum="10"
         app:layout_constraintBaseline_toBaselineOf="parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5">
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="40dp"
+
             android:layout_marginHorizontal="50dp"
-            android:textStyle="bold"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="14dp"
             android:text="Digital Library"
-            android:textSize="30dp"
             android:textColor="@color/purple_500"
-            android:layout_alignParentLeft="true">
+            android:textSize="30dp"
+            android:textStyle="bold">
 
         </TextView>
 
-    </RelativeLayout>
+
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_weight="3.8"
+        android:layout_height="250dp"
+
+        android:background="#00000000"
         android:columnCount="2"
         android:rowCount="1"
         android:alignmentMode="alignMargins"
@@ -133,7 +130,6 @@
 
                 </TextView>
 
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -142,8 +138,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_weight="1.5">
+            android:layout_height="200dp">
 
             <FrameLayout
                 android:layout_width="match_parent"

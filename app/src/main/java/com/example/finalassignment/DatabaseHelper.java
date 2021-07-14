@@ -26,6 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS USERS");
     }
 
+
     //To insert data
     public Boolean insertData(String username, String emailAddress, String password){
         SQLiteDatabase db = this.getWritableDatabase();
