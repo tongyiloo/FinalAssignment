@@ -1,0 +1,124 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AddLibraryActivity">
+
+        <TextView
+            android:id="@+id/titleDMR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            android:width="995dp"
+            android:height="35dp"
+            android:text="Add to Library"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tVReportApplicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="192dp"
+            android:text="Fill up the detail here:"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/titleDMR"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/titleDMR"
+            app:layout_constraintTop_toBottomOf="@+id/titleDMR" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputTitle1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Title"
+            app:boxBackgroundMode="outline"
+            app:layout_constraintEnd_toEndOf="@+id/tVReportApplicant"
+            app:layout_constraintStart_toStartOf="@+id/tVReportApplicant"
+            app:layout_constraintTop_toBottomOf="@+id/tVReportApplicant">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputDetail1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Description"
+            app:layout_constraintEnd_toEndOf="@+id/inputTitle1"
+            app:layout_constraintStart_toEndOf="@+id/inputTitle1"
+            app:layout_constraintStart_toStartOf="@+id/inputTitle1"
+            app:layout_constraintTop_toBottomOf="@+id/inputTitle1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <ImageView
+            android:id="@+id/imageviewDetail"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_baseline_add_a_photo_24"
+            app:layout_constraintTop_toBottomOf="@+id/inputDetail1" />
+
+        <Button
+            android:id="@+id/btnSaveInfo"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="30dp"
+            app:backgroundTint="@color/purple_500"
+            android:shadowColor="@color/black"
+            android:text="SAVE"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/white_radius"
+            android:elevation="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageviewDetail"
+            app:layout_constraintStart_toStartOf="@+id/imageviewDetail"
+            app:layout_constraintTop_toBottomOf="@+id/imageviewDetail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -31,6 +31,35 @@
             android:textStyle="bold">
         </TextView>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddLib"
+            android:layout_marginLeft="30dp"
+            app:fabSize="normal"
+            android:tint="@color/white"
+            android:elevation="6dp"
+            android:src="@drawable/ic_baseline_add_24"
+            android:backgroundTint="@color/purple2"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="15dp"
+                android:text="Add to library"
+                android:id="@+id/tvshow"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                >
+            </TextView>
+    </RelativeLayout>
+
         <ImageView
             android:id="@+id/imageViewBookD"
             android:layout_width="wrap_content"
@@ -50,6 +79,11 @@
             android:layout_marginVertical="10dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginBottom="50dp"/>
+
+
+
+
+
 
 
     </LinearLayout>
