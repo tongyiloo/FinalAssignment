@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
@@ -57,6 +58,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         //set views
         holder.LibIV.setImageURI(Uri.parse(image));
         holder.title.setText(title);
+        holder.description.setText(description);
 
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +95,21 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
                 );
             }
         });
+
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent  = new Intent(context, LibRecordActivity.class);
+//                intent.putExtra("ID", lid);
+//                intent.putExtra("TITLE", title);
+//                intent.putExtra("DESCRIPTION", description);
+//                intent.putExtra("IMAGE", image);
+//                intent.putExtra("ADD_TIMESTAMP", addTimeStamp);
+//                intent.putExtra("UPDATE_TIMESTAMP", updateTimeStamp);
+//                context.startActivity(intent);
+//            }
+//        });
+
     }
 
     private void deleteDialog(final String lid) {
@@ -106,11 +123,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 databaseHelperLibrary.deleteInfo(lid);
                 ((MyLibraryActivity)context).onResume();
                 Toast.makeText(context,"Delete Successfully", Toast.LENGTH_SHORT).show();
-
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -163,9 +178,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
     class Holder extends RecyclerView.ViewHolder{
 
         ImageView LibIV;
-        TextView title;
+        TextView title, description;
         ImageButton editButton, deleteButton;
-
+        CardView cardView;
 
         public Holder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -174,6 +189,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             LibIV = itemView.findViewById(R.id.imageLibIv);
             editButton =itemView.findViewById(R.id.editBtn);
             deleteButton = itemView.findViewById(R.id.deleteBtn);
+            description = itemView.findViewById(R.id.libDes);
+            cardView = itemView.findViewById(R.id.CView);
         }
     }
 

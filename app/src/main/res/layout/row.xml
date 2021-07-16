@@ -6,6 +6,7 @@
     app:cardUseCompatPadding="true"
     app:contentPadding="10dp"
     app:cardElevation="5dp"
+    android:id="@+id/CView"
     app:cardBackgroundColor="@color/white"
     >
 
@@ -21,7 +22,8 @@
             android:src="@drawable/ic_baseline_image_24"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linear"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_toRightOf="@+id/imageLibIv"
@@ -38,13 +40,23 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/libDes"
+                android:text="Description"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
 
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="75dp"
+            android:orientation="vertical"
+            android:layout_toEndOf="@id/linear"
+            android:gravity="center"
             >
         <ImageButton
             android:layout_width="wrap_content"
@@ -52,18 +64,16 @@
             android:id="@+id/editBtn"
             android:src="@drawable/ic_baseline_edit_24"
             android:background="#00000000"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"/>
+
+            />
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/deleteBtn"
             android:src="@drawable/ic_baseline_delete_24"
             android:background="#00000000"
-            android:layout_toStartOf="@id/editBtn"
-            android:layout_centerVertical="true"/>
-        </RelativeLayout>
+            />
+        </LinearLayout>
 
 
     </RelativeLayout>

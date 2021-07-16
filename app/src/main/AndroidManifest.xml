@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalAssignment">
-        <activity android:name=".EditLibraryActivity"></activity>
+        <activity android:name=".LibRecordActivity"></activity>
+        <activity android:name=".EditLibraryActivity" />
         <activity android:name=".AddLibraryActivity" />
         <activity android:name=".BookDetailsActivity" />
         <activity android:name=".MyLibraryActivity" />
