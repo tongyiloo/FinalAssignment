@@ -64,7 +64,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity=""
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="15dp"
                     android:orientation="horizontal">
 
@@ -109,7 +109,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity=""
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="15dp"
                     android:orientation="horizontal">
 
@@ -154,7 +154,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity=""
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="15dp"
                     android:orientation="horizontal">
 

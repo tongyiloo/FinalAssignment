@@ -67,17 +67,6 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
             return false;
     }
 
-//    public Boolean insertData(String username, String password){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(Constants.C_USERNAME, username);
-//        contentValues.put(Constants.C_PASSWORD, password);
-//        long result = db.insert(Constants.TABLE_NAME1, null, contentValues);
-//        if (result==1) return false;
-//        else
-//            return true;
-//    }
-
     //To check the password
     public Boolean checkusernamepassword(String username, String password){
         SQLiteDatabase db = this.getWritableDatabase();

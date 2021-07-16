@@ -135,22 +135,32 @@
 
     </GridLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="220dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Check out introduction here: "
+                android:textSize="18sp"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold"
+                />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
             <VideoView
                 android:id="@+id/videoView"
                 android:layout_width="match_parent"
                 android:layout_marginHorizontal="35dp"
                 android:layout_height="wrap_content" />
-
             </FrameLayout>
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

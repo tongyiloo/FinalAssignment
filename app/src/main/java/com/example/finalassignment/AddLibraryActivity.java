@@ -54,7 +54,7 @@ public class AddLibraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_library);
 
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Add Information");
+        actionBar.setTitle("My Library");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 

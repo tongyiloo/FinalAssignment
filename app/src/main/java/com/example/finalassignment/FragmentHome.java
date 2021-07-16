@@ -31,13 +31,8 @@ public class FragmentHome extends Fragment{
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-//        VideoView videoView = view.findViewById(R.id.videoView);
-//        videoView.setVideoPath("android.resource://" + getContext().getPackageName()+"/" + R.raw.videoMobile);
-//        MediaController mediaController = new MediaController(getContext());
-//        mediaController.setAnchorView(videoView);
-//        videoView.setMediaController(mediaController);
         VideoView videoView = view.findViewById(R.id.videoView);
-        String videoPath = "android.resource://" +getContext().getPackageName() + "/" + R.raw.videobook;
+        String videoPath = "android.resource://" +getContext().getPackageName() + "/" + R.raw.librarium_intro;
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);
 
@@ -63,8 +58,6 @@ public class FragmentHome extends Fragment{
                 startActivity(intent);
             }
         });
-
-
 
         return view;
     }

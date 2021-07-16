@@ -23,7 +23,7 @@
 
         <LinearLayout
             android:id="@+id/linear"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_toRightOf="@+id/imageLibIv"
@@ -52,6 +52,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/li"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:orientation="vertical"
@@ -62,16 +63,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editBtn"
+            android:padding="5dp"
             android:src="@drawable/ic_baseline_edit_24"
             android:background="#00000000"
+            android:elevation="6dp"
 
             />
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/deleteBtn"
+            android:padding="5dp"
             android:src="@drawable/ic_baseline_delete_24"
             android:background="#00000000"
+            android:elevation="6dp"
             />
         </LinearLayout>
 

@@ -54,6 +54,7 @@ public class EditLibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_library);
         actionBar = getSupportActionBar();
+        actionBar.setTitle("My Library");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
