@@ -19,13 +19,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="14dp"
-            android:text="Digital Library"
+            android:text="Librarium Home"
             android:textColor="@color/purple_500"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold">
 
         </TextView>

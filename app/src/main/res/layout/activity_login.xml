@@ -16,16 +16,26 @@
         android:fontFamily="@font/oxygen_bold"
         android:gravity="center"
         android:layout_marginTop="80dp"
-        android:text="Digital Library"
-        android:textColor="@color/blue"
-        android:textSize="40dp" />
+        android:text="Librarium"
+        android:textStyle="bold"
+        android:textColor="@color/purple_500"
+        android:textSize="40sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/oxygen_bold"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="A Digital Library Platform"
+        android:textColor="@color/purple_500"
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login to Your Account"
-        android:layout_marginTop="80dp"
-        android:textSize="18dp"
+        android:layout_marginTop="60dp"
+        android:textSize="18sp"
         android:textColor="@color/black"
         android:fontFamily="@font/oxygen" />
 
@@ -35,10 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         app:boxBackgroundColor="@color/white"
-        android:hint="Email Adddress">
+        android:hint="Username">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailLogin"
+            android:id="@+id/usernameLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />

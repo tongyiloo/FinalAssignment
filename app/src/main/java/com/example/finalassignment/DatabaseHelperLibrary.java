@@ -21,6 +21,7 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Constants.CREATE_TABLE);
+        db.execSQL(Constants.CREATE_TABLE1);
 
     }
 
@@ -28,6 +29,7 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS "+ Constants.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+ Constants.TABLE_NAME1);
         onCreate(db);
     }
 
@@ -40,10 +42,50 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
         values.put(Constants.C_IMAGE, image);
         values.put(Constants.C_ADD_TIMESTAMP, addTimeStamp);
         values.put(Constants.C_UPDATE_TIMESTAMP, updateTimeStamp);
-
         long lid = db.insert(Constants.TABLE_NAME, null, values);
-
         return lid;
+    }
+
+    public Boolean insertUser(String username, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Constants.C_USERNAME, username);
+        values.put(Constants.C_PASSWORD, password);
+        long id = db.insert(Constants.TABLE_NAME1, null, values);
+        if (id==1) return false;
+        else
+            return true;
+    }
+    //To check the username
+    public Boolean checkusername(String username){
+        //String query = "SELECT * FROM " + Constants.TABLE_NAME1 + " WHERE " + Constants.C_USERNAME + " =?";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM USER_TABLE WHERE USERNAME = ?", new String[]{username});
+        if (cursor.getCount()>0)
+            return true;
+        else
+            return false;
+    }
+
+//    public Boolean insertData(String username, String password){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(Constants.C_USERNAME, username);
+//        contentValues.put(Constants.C_PASSWORD, password);
+//        long result = db.insert(Constants.TABLE_NAME1, null, contentValues);
+//        if (result==1) return false;
+//        else
+//            return true;
+//    }
+
+    //To check the password
+    public Boolean checkusernamepassword(String username, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM USER_TABLE WHERE USERNAME = ? and PASSWORD = ?", new String[]{username, password});
+        if (cursor.getCount()>0)
+            return true;
+        else
+            return false;
     }
 
     // update information
@@ -89,11 +131,9 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
                         ""+cursor.getString(cursor.getColumnIndex(Constants.C_UPDATE_TIMESTAMP))
                 );
                 arrayList.add(model);
-
             }while
             (cursor.moveToNext());
         }
-
         return arrayList;
     }
 

@@ -13,32 +13,32 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextInputEditText emailaddress, password;
+    private TextInputEditText username, password;
     private Button btnlogin;
     private TextView signup;
-    private DatabaseHelper DB;
+    private DatabaseHelperLibrary DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailaddress = findViewById(R.id.emailLogin);
+        username = findViewById(R.id.usernameLogin);
         password = findViewById(R.id.passwordLogin);
         signup = findViewById(R.id.tvToSignUp);
         btnlogin = findViewById(R.id.btnLogin);
-        DB = new DatabaseHelper(this);
+        DB = new DatabaseHelperLibrary(this);
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailaddress.getEditableText().toString();
+                String uname = username.getEditableText().toString();
                 String pass = password.getEditableText().toString();
 
-                if(email.equals("")||pass.equals(""))
+                if(uname.equals("")||pass.equals(""))
                     Toast.makeText(LoginActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else {
-                    Boolean checkuserpass = DB.checkusernamepassword(email, pass);
+                    Boolean checkuserpass = DB.checkusernamepassword(uname, pass);
                     if(checkuserpass == true){
                         Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

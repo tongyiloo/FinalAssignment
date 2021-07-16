@@ -259,8 +259,6 @@ public class AddLibraryActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
-
     @Override
     public boolean onSupportNavigateUp() {
         // this function moves the addlibrary activity to previous activity when back button pressed.

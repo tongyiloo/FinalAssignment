@@ -1,5 +1,6 @@
 package com.example.finalassignment;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 public class BooksActivity extends AppCompatActivity {
 
+    private ActionBar actionBar;
     GridView gridView;
 
     String[] names = {"Destiny Arrives", "Captain America", "The Gauntlet", "Loki Where Mischief Lies", "Miles Morales", "Thor: An Origin Story"};
@@ -30,8 +32,11 @@ public class BooksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_books);
 
         detail = getResources().getStringArray(R.array.bookslibrary);
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("Books Library");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-        //detail = new String[]{getString(R.string.string_avg), getString(R.string.test1), getString(R.string.test2), getString(R.string.test3), getString(R.string.test4), getString(R.string.test5),};
 
         gridView = findViewById(R.id.gridView);
 
@@ -95,5 +100,12 @@ public class BooksActivity extends AppCompatActivity {
 
             return convertView;
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        // this function moves the addlibrary activity to previous activity when back button pressed.
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

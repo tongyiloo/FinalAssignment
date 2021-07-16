@@ -3,7 +3,7 @@ package com.example.finalassignment;
 public class Constants {
 
     //db name
-    public static final String DB_NAME = "DigitalLibraryy";
+    public static final String DB_NAME = "DigitalLibraryApp.db";
     //db version
     public static final int DB_VERSION = 1;
     //db table
@@ -29,5 +29,15 @@ public class Constants {
             + ");";
 
 
+    public static final String TABLE_NAME1 = "USER_TABLE";
+    public static final String C_ID = "ID";
+    public static final String C_USERNAME = "USERNAME";
+    public static final String C_PASSWORD = "PASSWORD";
+
+    public static final String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " ("
+            + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + C_USERNAME + " TEXT,"
+            + C_PASSWORD + " TEXT"
+            + ");";
 }
-//            + "FOREIGN KEY (" + C_ID + ") REFERENCES USERS(ID)"
+

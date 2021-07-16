@@ -22,6 +22,10 @@ public class MyLibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_library);
 
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("My Library");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         mRecyclerView = findViewById(R.id.recycleView);
         databaseHelperLibrary = new DatabaseHelperLibrary(this);
 
@@ -51,5 +55,12 @@ public class MyLibraryActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         showRecord();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        // this function moves the addlibrary activity to previous activity when back button pressed.
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }
