@@ -46,6 +46,27 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
         return lid;
     }
 
+    // update information
+    public void updateInfo(String lid, String title, String description, String image, String addTimeStamp, String updateTimeStamp){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Constants.C_TITLE, title);
+        values.put(Constants.C_DESCRIPTION, description);
+        values.put(Constants.C_IMAGE, image);
+        values.put(Constants.C_ADD_TIMESTAMP, addTimeStamp);
+        values.put(Constants.C_UPDATE_TIMESTAMP, updateTimeStamp);
+
+        db.update(Constants.TABLE_NAME, values, Constants.C_LID+ " = ?", new String[]{lid});
+        //db.close();
+    }
+
+    //delete information
+    public void deleteInfo(String lid){
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(Constants.TABLE_NAME, Constants.C_LID + " = ?", new String[]{lid});
+        //db.close();
+    }
+
     public ArrayList<Model> getAllData(String orderBy){
         ArrayList<Model> arrayList = new ArrayList<>();
 

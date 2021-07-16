@@ -27,7 +27,7 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.jetbrains.annotations.NotNull;
 
-public class AddLibraryActivity extends AppCompatActivity {
+public class EditLibraryActivity extends AppCompatActivity {
 
     private ImageView pImageView;
     private TextInputEditText pTitleEt, pDescriptionEt;
@@ -45,16 +45,15 @@ public class AddLibraryActivity extends AppCompatActivity {
 
     private Uri imageUri;
 
-    private String title, description, timeStamp;
+    private String lid, title, description, addTimeStamp, updateTimeStamp;
+    private boolean editMode = false;
     private DatabaseHelperLibrary dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_library);
-
+        setContentView(R.layout.activity_edit_library);
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Add Information");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -63,6 +62,40 @@ public class AddLibraryActivity extends AppCompatActivity {
         pDescriptionEt = findViewById(R.id.inputDetail);
 
         btnSave = findViewById(R.id.btnSaveInfo);
+
+        Intent intent = getIntent();
+        editMode = intent.getBooleanExtra("editMode", editMode);
+        lid = intent.getStringExtra("ID");
+        title = intent.getStringExtra("TITLE");
+        description = intent.getStringExtra("DESCRIPTION");
+        imageUri = Uri.parse(intent.getStringExtra("IMAGE"));
+        addTimeStamp = intent.getStringExtra("ADD_TIMESTAMP");
+        updateTimeStamp = intent.getStringExtra("UPDATE_TIMESTAMP");
+
+        if(editMode){
+            actionBar.setTitle("Update Information");
+            editMode = intent.getBooleanExtra("editMode", editMode);
+            lid = intent.getStringExtra("ID");
+            title = intent.getStringExtra("TITLE");
+            description = intent.getStringExtra("DESCRIPTION");
+            imageUri = Uri.parse(intent.getStringExtra("IMAGE"));
+            addTimeStamp = intent.getStringExtra("ADD_TIMESTAMP");
+            updateTimeStamp = intent.getStringExtra("UPDATE_TIMESTAMP");
+
+            pTitleEt.setText(title);
+            pDescriptionEt.setText(description);
+
+            if(imageUri.toString().equals("null")){
+                pImageView.setImageResource(R.drawable.ic_baseline_add_a_photo_24);
+            }
+            else {
+                pImageView.setImageURI(imageUri);
+            }
+        }
+
+        else {
+            actionBar.setTitle("Add Information");
+        }
 
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -83,8 +116,8 @@ public class AddLibraryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // when click on save button insert the data to db
                 getData();
-                startActivity(new Intent(AddLibraryActivity.this, MyLibraryActivity.class));
-                Toast.makeText(AddLibraryActivity.this, "Add successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(EditLibraryActivity.this, MyLibraryActivity.class));
+                Toast.makeText(EditLibraryActivity.this, "Update successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -94,19 +127,33 @@ public class AddLibraryActivity extends AppCompatActivity {
         title = ""+pTitleEt.getText().toString().trim();
         description = ""+pDescriptionEt.getText().toString().trim();
 
-        timeStamp = ""+System.currentTimeMillis();
+        if (editMode) {
+            String newUpdateTime = ""+System.currentTimeMillis();
 
-        //long lid = dbHelper.insertInfo(
-        dbHelper.insertInfo(
-                ""+title,
-                ""+description,
-                ""+imageUri,
-                ""+timeStamp,
-                ""+timeStamp
-        );
+            dbHelper.updateInfo(
+                    ""+lid,
+                    ""+title,
+                    ""+description,
+                    ""+imageUri,
+                    ""+addTimeStamp,
+                    ""+updateTimeStamp
+            );
+        }
+        else {
+
+            String timeStamp = "" + System.currentTimeMillis();
+
+            dbHelper.insertInfo(
+                    "" + title,
+                    "" + description,
+                    "" + imageUri,
+                    "" + timeStamp,
+                    "" + timeStamp
+            );
+        }
 
         //Toast.makeText(this,"Record added to lid: "+lid, Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(AddLibraryActivity.this, MyLibraryActivity.class));
+        //startActivity(new Intent(EditLibraryActivity.this, MyLibraryActivity.class));
     }
 
     private void imagePickDialog() {

@@ -4,16 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightpurple"
     tools:context=".MyLibraryActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="WGSGSEG"
-        android:elevation="10dp"
-        android:layout_marginTop="400dp"
-        android:textColor="@color/black"
-        android:textSize="40sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

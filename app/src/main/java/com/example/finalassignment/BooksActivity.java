@@ -19,8 +19,6 @@ public class BooksActivity extends AppCompatActivity {
 
     GridView gridView;
 
-
-
     String[] names = {"Destiny Arrives", "Captain America", "The Gauntlet", "Loki Where Mischief Lies", "Miles Morales", "Thor: An Origin Story"};
     String[] detail;
     int[] images = {R.drawable.img_avg, R.drawable.img_cap, R.drawable.img_iron, R.drawable.img_loki, R.drawable.img_miles, R.drawable.img_thor};
