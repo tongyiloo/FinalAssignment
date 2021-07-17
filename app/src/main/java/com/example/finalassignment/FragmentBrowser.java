@@ -19,7 +19,6 @@ public class FragmentBrowser extends Fragment {
 
     public  FragmentBrowser(){}
 
-
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
@@ -29,17 +28,21 @@ public class FragmentBrowser extends Fragment {
         Button btnGoogle = (Button) view.findViewById(R.id.btnGoogle);
         Button btnGoogleSch = (Button) view.findViewById(R.id.btnGoogleScholar);
 
+        // Attach a listener to button for browser google website
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //grab the data from Uri.parse
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/"));
                 startActivity(intent);
             }
         });
 
+        // Attach a listener to button for browser google scholar website
         btnGoogleSch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //grab the data from Uri.parse
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://scholar.google.com/"));
                 startActivity(intent);
             }

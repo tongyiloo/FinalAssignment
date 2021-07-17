@@ -23,6 +23,7 @@ public class BookDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
 
+        //Link XML file component to java by calling findViewById() method
         imageView = findViewById(R.id.imageViewBookD);
         tvName = findViewById(R.id.tvNameD);
         tvbook = findViewById(R.id.tvBookDetail);
@@ -33,8 +34,9 @@ public class BookDetailsActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        //set Value passed from main activity gridView.setOnItemClickListener
         Intent intent = getIntent();
-        //set Value
+        
         if(intent.getExtras()!=null){
             String selectedName = intent.getStringExtra("name");
             String selectedDetail = intent.getStringExtra("detail");
@@ -45,6 +47,7 @@ public class BookDetailsActivity extends AppCompatActivity {
             imageView.setImageResource(selectedImage);
         }
 
+        // Attach a listener to the icon button
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class DatabaseHelperLibrary extends SQLiteOpenHelper {
 
-
     public DatabaseHelperLibrary(@Nullable Context context) {
         super(context, Constants.DB_NAME, null, Constants.DB_VERSION);
     }
@@ -27,13 +26,12 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
         db.execSQL("DROP TABLE IF EXISTS "+ Constants.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS "+ Constants.TABLE_NAME1);
         onCreate(db);
     }
 
-    //insert info function
+    //insert info USER_LIBRARY_TABLE function
     public long insertInfo(String title, String description, String image, String addTimeStamp, String updateTimeStamp){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -46,6 +44,7 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
         return lid;
     }
 
+    //insert info USER_TABLE function
     public Boolean insertUser(String username, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -56,6 +55,7 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
         else
             return true;
     }
+
     //To check the username
     public Boolean checkusername(String username){
         //String query = "SELECT * FROM " + Constants.TABLE_NAME1 + " WHERE " + Constants.C_USERNAME + " =?";
@@ -77,7 +77,7 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
             return false;
     }
 
-    // update information
+    // update information from USER_LIBRARY_TABLE function
     public void updateInfo(String lid, String title, String description, String image, String addTimeStamp, String updateTimeStamp){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -88,14 +88,12 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
         values.put(Constants.C_UPDATE_TIMESTAMP, updateTimeStamp);
 
         db.update(Constants.TABLE_NAME, values, Constants.C_LID+ " = ?", new String[]{lid});
-        //db.close();
     }
 
-    //delete information
+    //delete information from USER_LIBRARY_TABLE function
     public void deleteInfo(String lid){
         SQLiteDatabase db = getWritableDatabase();
         db.delete(Constants.TABLE_NAME, Constants.C_LID + " = ?", new String[]{lid});
-        //db.close();
     }
 
     public ArrayList<Model> getAllData(String orderBy){
@@ -107,7 +105,7 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        //when we select all info from database new get the data from columns
+        //select all info from database new get the data from columns
         if(cursor.moveToNext()){
             do {
                 // do is used because first it gets the data from columns then move to next condition

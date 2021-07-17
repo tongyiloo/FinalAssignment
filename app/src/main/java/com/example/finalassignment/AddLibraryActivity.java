@@ -46,6 +46,7 @@ public class AddLibraryActivity extends AppCompatActivity {
     private Uri imageUri;
 
     private String title, description, timeStamp;
+    //dataBase object
     private DatabaseHelperLibrary dbHelper;
 
     @Override
@@ -58,26 +59,31 @@ public class AddLibraryActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        //Link XML file component to java by calling findViewById() method
         pImageView = findViewById(R.id.imageviewDetail);
         pTitleEt = findViewById(R.id.inputTitle);
         pDescriptionEt = findViewById(R.id.inputDetail);
 
         btnSave = findViewById(R.id.btnSaveInfo);
 
+        //required to be able to access the camera device
+        //allows app to write to external storage
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
         //initiate database object in main function
         dbHelper = new DatabaseHelperLibrary(this);
 
+        //Attach a listener to the imageView
         pImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // when click on imageView get image from storage
                 imagePickDialog();
-
             }
         });
 
+        //Attach a listener to the button "Save"
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,14 +95,12 @@ public class AddLibraryActivity extends AppCompatActivity {
         });
     }
 
+    // insert data title, description, image, and timeStamp into database function
     private void getData() {
-
         title = ""+pTitleEt.getText().toString().trim();
         description = ""+pDescriptionEt.getText().toString().trim();
-
         timeStamp = ""+System.currentTimeMillis();
 
-        //long lid = dbHelper.insertInfo(
         dbHelper.insertInfo(
                 ""+title,
                 ""+description,
@@ -105,15 +109,15 @@ public class AddLibraryActivity extends AppCompatActivity {
                 ""+timeStamp
         );
 
-        //Toast.makeText(this,"Record added to lid: "+lid, Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(AddLibraryActivity.this, MyLibraryActivity.class));
     }
 
+    // pick image from storage function
     private void imagePickDialog() {
 
         String[] options = {"Camera", "Gallery"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+        //dialog show options to choose "Camera" and "Gallery"
         builder.setTitle("Select for image");
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
@@ -129,6 +133,7 @@ public class AddLibraryActivity extends AppCompatActivity {
                     }
                 }
                 else if(which == 1){
+                    // if 1 then open storage and also check the permission of storage
                     if (!checkStoragePermission()){
                         requestStoragePermission();
                     }
@@ -136,26 +141,28 @@ public class AddLibraryActivity extends AppCompatActivity {
                         pickFromStorage();
                     }
                 }
-
             }
         });
+
         builder.create().show();
     }
 
     private void pickFromStorage() {
 
-        //so this function get image from gallery
+        //this function grab image from gallery/data source and return what was selected
         Intent galleryIntent = new Intent(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
     }
 
+    //  takes  cameraIntent as an input and returns an ActivityResult
     private void pickFromCamera() {
-        // get image from camera
+        //get image from camera
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "Image title");
         values.put(MediaStore.Images.Media.DESCRIPTION, "Image description");
 
+        //get image uri
         imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -163,16 +170,20 @@ public class AddLibraryActivity extends AppCompatActivity {
         startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
     }
 
+    // Determine whether have been granted write external storage permission
+    //if have the permission returns permission granted result
     private boolean checkStoragePermission(){
         boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == (PackageManager.PERMISSION_GRANTED);
         return result;
     }
-
+    //and request for permission if not granted already.
     private void requestStoragePermission(){
         ActivityCompat.requestPermissions(this, storagePermission, STORAGE_REQUEST_CODE);
     }
 
+    // Determine whether have been granted write external storage and camera permission
+    // if have the permission returns permission granted result
     private boolean checkCameraPermission(){
         boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 == (PackageManager.PERMISSION_GRANTED);
@@ -182,17 +193,18 @@ public class AddLibraryActivity extends AppCompatActivity {
 
         return result && result1;
     }
-
+    //and request for permission if not granted already.
     private void requestCameraPermission(){
         ActivityCompat.requestPermissions(this, cameraPermission, CAMERA_REQUEST_CODE);
     }
 
+    //Callback for the result from requesting permissions.
+    //The grant results for the corresponding permissions which is PackageManager.PERMISSION_GRANTED
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         switch (requestCode){
-
             case CAMERA_REQUEST_CODE: {
 
                 if(grantResults.length>0){
@@ -200,6 +212,7 @@ public class AddLibraryActivity extends AppCompatActivity {
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     boolean storageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
 
+                    // if permission granted access camera, capture image and write storage
                     if (cameraAccepted && storageAccepted){
                         pickFromCamera();
                     }
@@ -224,10 +237,11 @@ public class AddLibraryActivity extends AppCompatActivity {
         }
     }
 
+    //start an activity for result and get the result from the activity select image, the result will set to imageUri
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
 
-        // first add image crop library
+        //add image crop library from 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
         if (resultCode == RESULT_OK){
             if(requestCode == IMAGE_PICK_GALLERY_CODE){
                 CropImage.activity(data.getData())
@@ -236,7 +250,6 @@ public class AddLibraryActivity extends AppCompatActivity {
                         .start(this);
             }
             else if (requestCode == IMAGE_PICK_CAMERA_CODE){
-
                 CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setAspectRatio(1,1)

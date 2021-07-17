@@ -48,7 +48,6 @@
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
 
-
         </LinearLayout>
 
         <LinearLayout
@@ -80,11 +79,6 @@
             />
         </LinearLayout>
 
-
     </RelativeLayout>
-
-
-    <!--first add two library-->
-
 
 </androidx.cardview.widget.CardView>

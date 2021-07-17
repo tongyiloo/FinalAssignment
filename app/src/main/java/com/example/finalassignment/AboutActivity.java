@@ -20,7 +20,6 @@ public class AboutActivity extends AppCompatActivity {
     }
     @Override
     public boolean onSupportNavigateUp() {
-        // this function moves the addlibrary activity to previous activity when back button pressed.
         onBackPressed();
         return super.onSupportNavigateUp();
     }

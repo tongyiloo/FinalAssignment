@@ -37,7 +37,7 @@ public class MyLibraryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(MyLibraryActivity.this, AddLibraryActivity.class));
-
+                //putExtra() method is use for send the data
                 Intent intent = new Intent(MyLibraryActivity.this, AddLibraryActivity.class);
                 intent.putExtra("editMode", false);
                 startActivity(intent);
@@ -46,7 +46,7 @@ public class MyLibraryActivity extends AppCompatActivity {
     }
 
     private void showRecord() {
-        //because last added record show on top
+        //last added record show on top
         Adapter adapter = new Adapter(MyLibraryActivity.this, databaseHelperLibrary.getAllData(Constants.C_ADD_TIMESTAMP + " DESC"));
         mRecyclerView.setAdapter(adapter);
     }

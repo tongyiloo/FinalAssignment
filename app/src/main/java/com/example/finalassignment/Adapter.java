@@ -60,6 +60,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         holder.title.setText(title);
         holder.description.setText(description);
 
+        //When click on edit edit icon button, show an alert to update the item
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +80,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-
                 deleteDialog(
                         ""+lid
                 );
@@ -87,6 +87,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             }
         });
 
+        //when click on delete icon button, show an alert button to delete an item
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,23 +96,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
                 );
             }
         });
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent  = new Intent(context, LibRecordActivity.class);
-//                intent.putExtra("ID", lid);
-//                intent.putExtra("TITLE", title);
-//                intent.putExtra("DESCRIPTION", description);
-//                intent.putExtra("IMAGE", image);
-//                intent.putExtra("ADD_TIMESTAMP", addTimeStamp);
-//                intent.putExtra("UPDATE_TIMESTAMP", updateTimeStamp);
-//                context.startActivity(intent);
-//            }
-//        });
-
     }
 
+    //dialog to confirm delete data
     private void deleteDialog(final String lid) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -120,6 +107,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         builder.setCancelable(false);
         builder.setIcon(R.drawable.ic_baseline_delete_24);
 
+        // Click "Yes" to delete data
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -128,17 +116,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
                 Toast.makeText(context,"Delete Successfully", Toast.LENGTH_SHORT).show();
             }
         });
+        // click "No" to cancel dialog
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-        builder.create().show();
 
+        builder.create().show();
     }
 
-
+    //dialog to confirm edit/update data
     private void editDialog(String position, String lid, String image, String title, String description, String addTimeStamp, String updateTimeStamp) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Update");
@@ -146,6 +135,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         builder.setCancelable(false);
         builder.setIcon(R.drawable.ic_baseline_edit_24);
 
+        // Click "Yes" to update data
+        // putExtra() adds extended data to the intent.
+        // It has two parameters, first one specifies the name which of the extra data,and the second parameter is the data itself.
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -160,7 +152,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
                 context.startActivity(intent);
             }
         });
-
+        // click "No" to cancel dialog
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -185,6 +177,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         public Holder(@NonNull @NotNull View itemView) {
             super(itemView);
 
+            //Link XML file component to java by calling findViewById() method
             title = itemView.findViewById(R.id.libTitle);
             LibIV = itemView.findViewById(R.id.imageLibIv);
             editButton =itemView.findViewById(R.id.editBtn);
@@ -193,6 +186,5 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             cardView = itemView.findViewById(R.id.CView);
         }
     }
-
 
 }

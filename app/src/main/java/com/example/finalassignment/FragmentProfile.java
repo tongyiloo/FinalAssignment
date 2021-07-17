@@ -29,6 +29,7 @@ public class FragmentProfile extends Fragment implements View.OnClickListener{
 
         CardView c1,c2,c3;
 
+        //find CardView and assign object
         c1 = view.findViewById(R.id.cardView1);
         c2 = view.findViewById(R.id.cardView2);
         c3 = view.findViewById(R.id.cardView3);
@@ -41,6 +42,8 @@ public class FragmentProfile extends Fragment implements View.OnClickListener{
         return view;
     }
 
+    //This method will use switch case and intent, will open switch case
+    //whenever click on particular view it will get the id of the view to the activity
     @Override
     public void onClick(View v) {
         Intent intent;
