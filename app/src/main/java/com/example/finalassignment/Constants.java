@@ -8,6 +8,21 @@ public class Constants {
     public static final int DB_VERSION = 1;
     //db table
     public static final String TABLE_NAME = "USER_LIBRARY_TABLE";
+    public static final String TABLE_NAME1 = "USER_TABLE";
+
+    // USER_TABLE table columns
+
+    public static final String C_ID = "ID";
+    public static final String C_USERNAME = "USERNAME";
+    public static final String C_PASSWORD = "PASSWORD";
+
+    // Create query for USER_TABLE table columns
+    public static final String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " ("
+            + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + C_USERNAME + " TEXT,"
+            + C_PASSWORD + " TEXT"
+            + ");";
+
     // USER_LIBRARY_TABLE table columns
     public static final String C_LID = "LID";
     public static final String C_TITLE = "TITLE";
@@ -16,7 +31,7 @@ public class Constants {
     public static final String C_ADD_TIMESTAMP = "ADD_TIMESTAMP";
     public static final String C_UPDATE_TIMESTAMP = "UPDATE_TIMESTAMP";
 
-    //create query for USER_LIBRARY_TABLE table columns
+    //Create query for USER_LIBRARY_TABLE table columns
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
             + C_LID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + C_TITLE + " TEXT,"
@@ -26,17 +41,5 @@ public class Constants {
             + C_UPDATE_TIMESTAMP + " TEXT"
             + ");";
 
-    // USER_TABLE table columns
-    public static final String TABLE_NAME1 = "USER_TABLE";
-    public static final String C_ID = "ID";
-    public static final String C_USERNAME = "USERNAME";
-    public static final String C_PASSWORD = "PASSWORD";
-
-    // create query for USER_TABLE table columns
-    public static final String CREATE_TABLE1 = "CREATE TABLE " + TABLE_NAME1 + " ("
-            + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + C_USERNAME + " TEXT,"
-            + C_PASSWORD + " TEXT"
-            + ");";
 }
 

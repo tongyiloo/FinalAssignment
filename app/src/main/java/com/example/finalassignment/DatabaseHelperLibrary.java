@@ -44,21 +44,10 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
         return lid;
     }
 
-    //insert info USER_TABLE function
-    public Boolean insertUser(String username, String password){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(Constants.C_USERNAME, username);
-        values.put(Constants.C_PASSWORD, password);
-        long id = db.insert(Constants.TABLE_NAME1, null, values);
-        if (id==1) return false;
-        else
-            return true;
-    }
+
 
     //To check the username
     public Boolean checkusername(String username){
-        //String query = "SELECT * FROM " + Constants.TABLE_NAME1 + " WHERE " + Constants.C_USERNAME + " =?";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM USER_TABLE WHERE USERNAME = ?", new String[]{username});
         if (cursor.getCount()>0)
@@ -77,6 +66,17 @@ public class DatabaseHelperLibrary extends SQLiteOpenHelper {
             return false;
     }
 
+    //insert info USER_TABLE function
+    public Boolean insertUser(String username, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Constants.C_USERNAME, username);
+        values.put(Constants.C_PASSWORD, password);
+        long id = db.insert(Constants.TABLE_NAME1, null, values);
+        if (id==1) return false;
+        else
+            return true;
+    }
     // update information from USER_LIBRARY_TABLE function
     public void updateInfo(String lid, String title, String description, String image, String addTimeStamp, String updateTimeStamp){
         SQLiteDatabase db = this.getWritableDatabase();

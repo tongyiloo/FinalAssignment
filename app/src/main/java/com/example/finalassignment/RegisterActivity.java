@@ -36,7 +36,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user = username.getEditableText().toString();
-                //String email = emailAddress.getEditableText().toString();
                 String pass = password.getEditableText().toString();
                 String repass = repassword.getEditableText().toString();
 

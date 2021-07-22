@@ -66,12 +66,12 @@ public class AddLibraryActivity extends AppCompatActivity {
 
         btnSave = findViewById(R.id.btnSaveInfo);
 
-        //required to be able to access the camera device
+        //required to be able to access the deice camera
         //allows app to write to external storage
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-        //initiate database object in main function
+        //initiate database object in this function
         dbHelper = new DatabaseHelperLibrary(this);
 
         //Attach a listener to the imageView
@@ -122,7 +122,6 @@ public class AddLibraryActivity extends AppCompatActivity {
         builder.setItems(options, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 if(which ==0){
                     // if 0 then open camera and also check the permission of camera
                     if(!checkCameraPermission()){

@@ -86,11 +86,11 @@ public class EditLibraryActivity extends AppCompatActivity {
             addTimeStamp = intent.getStringExtra("ADD_TIMESTAMP");
             updateTimeStamp = intent.getStringExtra("UPDATE_TIMESTAMP");
 
-            // set data from database to display on textView
+            // set data from database to display on TextInputEditText
             pTitleEt.setText(title);
             pDescriptionEt.setText(description);
 
-            // set data from database and display on TextView
+            // set data from database and display on TextInputEditText
             // if imageUri is null, setImageResource
             if(imageUri.toString().equals("null")){
                 pImageView.setImageResource(R.drawable.ic_baseline_add_a_photo_24);
